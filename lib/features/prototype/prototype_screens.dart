@@ -630,7 +630,46 @@ class StaffDashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _SimpleScreen(title: 'Staff Dashboard');
+    return Scaffold(
+      appBar: AppBar(title: const Text('Staff Dashboard')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const _RealtimeClock(prefix: 'Staff • '),
+          const SizedBox(height: 16),
+          Text(
+            'Sector Overview',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            children: [
+              ChoiceChip(
+                label: Text('All'),
+                selected: true,
+                onSelected: (_) {},
+              ),
+              ChoiceChip(
+                label: Text('Banking'),
+                selected: false,
+                onSelected: (_) {},
+              ),
+              ChoiceChip(
+                label: Text('Health'),
+                selected: false,
+                onSelected: (_) {},
+              ),
+              ChoiceChip(
+                label: Text('Utility'),
+                selected: false,
+                onSelected: (_) {},
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -648,7 +687,26 @@ class AdminHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _SimpleScreen(title: 'Admin Home');
+    return Scaffold(
+      appBar: AppBar(title: const Text('Admin Home')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const _RealtimeClock(prefix: 'Admin • '),
+          const SizedBox(height: 16),
+          ListTile(
+            title: const Text('Edit Schedules'),
+            trailing: const Icon(Icons.edit_calendar),
+            onTap: () {}, // TODO: Implement schedule editing
+          ),
+          ListTile(
+            title: const Text('Analytics'),
+            trailing: const Icon(Icons.analytics),
+            onTap: () {}, // TODO: Link to analytics dashboard
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -852,7 +910,37 @@ class StaffSettingsScreen extends StatelessWidget {
   const StaffSettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) => _SimpleScreen(title: 'Staff Settings');
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        ListTile(
+          leading: CircleAvatar(child: Icon(Icons.person)),
+          title: Text('Profile Photo'),
+          trailing: TextButton(
+            onPressed: () {}, // TODO: Implement photo upload
+            child: const Text('Upload'),
+          ),
+        ),
+        const SizedBox(height: 10),
+        ListTile(
+          title: const Text('Quick Tutorial'),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () {}, // TODO: Link to tutorial
+        ),
+        ListTile(
+          title: const Text('Notification Preferences'),
+          trailing: const Icon(Icons.notifications),
+          onTap: () {},
+        ),
+        ListTile(
+          title: const Text('Sign Out'),
+          textColor: Colors.redAccent,
+          onTap: () {}, // TODO: Implement sign out
+        ),
+      ],
+    );
+  }
 }
 
 class BranchManagementScreen extends StatelessWidget {

@@ -1,3 +1,4 @@
+import 'package:the_queue_mobile/features/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:the_queue_mobile/app/app_routes.dart';
 import 'package:the_queue_mobile/app/auth_controller.dart';
@@ -12,51 +13,53 @@ class TheQueueApp extends StatelessWidget {
   Widget _resolveRoute(String? name) {
     switch (name) {
       case AppRoutes.loader:
-        return const QueueFlowLoaderScreen();
+        return QueueFlowLoaderScreen();
       case AppRoutes.gallery:
-        return const PrototypeGalleryScreen();
+        // return const PrototypeGalleryScreen();
+        // Restored: fall through to normal navigation
+        return OnboardingScreen();
       case AppRoutes.onboarding:
       case AppRoutes.login:
       case AppRoutes.signup:
-        return const OnboardingLoginScreen();
+        return OnboardingLoginScreen();
       case AppRoutes.customerHome:
       case AppRoutes.home:
-        return const CustomerHomeScreen();
+        return CustomerHomeScreen();
       case AppRoutes.ticketIssuance:
-        return const TicketIssuanceScreen();
+        return TicketIssuanceScreen();
       case AppRoutes.liveTicketDetail:
-        return const LiveTicketDetailScreen();
+        return LiveTicketDetailScreen();
       case AppRoutes.notifications:
-        return const NotificationCenterScreen();
+        return NotificationCenterScreen();
       case AppRoutes.tutorial:
-        return const TutorialGuideScreen();
+        return TutorialGuideScreen();
       case AppRoutes.branchMap:
-        return const BranchMapScreen();
+        return BranchMapScreen();
       case AppRoutes.kioskIssuance:
-        return const KioskIssuanceScreen();
+        return KioskIssuanceScreen();
       case AppRoutes.staffDashboard:
-        return const StaffDashboardScreen();
+        return StaffDashboardScreen();
       case AppRoutes.staffCounterView:
-        return const StaffCounterViewScreen();
+        return StaffCounterViewScreen();
       case AppRoutes.adminHome:
-        return const AdminHomeScreen();
+        return AdminHomeScreen();
       case AppRoutes.analyticsDashboard:
-        return const AnalyticsDashboardScreen();
+        return AnalyticsDashboardScreen();
       case AppRoutes.settingsProfile:
       case AppRoutes.settings:
-        return const SettingsProfileScreen();
+        return SettingsProfileScreen();
       case AppRoutes.myTickets:
-        return const MyTicketsScreen();
+        return MyTicketsScreen();
       case AppRoutes.history:
-        return const HistoryScreen();
+        return HistoryScreen();
       case AppRoutes.profile:
-        return const ProfileScreen();
+        return ProfileScreen();
       case AppRoutes.staffSettings:
-        return const StaffSettingsScreen();
+        return StaffSettingsScreen();
       case AppRoutes.branchManagement:
-        return const BranchManagementScreen();
+        return BranchManagementScreen();
       default:
-        return const QueueFlowLoaderScreen();
+        return QueueFlowLoaderScreen();
     }
   }
 
@@ -87,7 +90,7 @@ class TheQueueApp extends StatelessWidget {
     if (!isLoggedIn && !isAuthScreen) {
       return MaterialPageRoute(
         settings: settings,
-        builder: (_) => const OnboardingLoginScreen(),
+        builder: (_) => OnboardingLoginScreen(),
       );
     }
 

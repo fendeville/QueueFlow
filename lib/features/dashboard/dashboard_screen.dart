@@ -6,15 +6,56 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PlaceholderScreen(
-      title: 'Dashboard',
-      subtitle: 'Overview of your queue activity and quick actions',
-      items: [
-        'Today\'s queue load',
-        'Peak hours insight',
-        'Recent customer actions',
-        'Quick create queue',
-      ],
+    return Scaffold(
+      appBar: AppBar(title: const Text('Dashboard')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const _RealtimeClock(prefix: 'Admin • '),
+          const SizedBox(height: 16),
+          Text(
+            'Sector Overview',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            children: [
+              ChoiceChip(
+                label: Text('All'),
+                selected: true,
+                onSelected: (_) {},
+              ),
+              ChoiceChip(
+                label: Text('Banking'),
+                selected: false,
+                onSelected: (_) {},
+              ),
+              ChoiceChip(
+                label: Text('Health'),
+                selected: false,
+                onSelected: (_) {},
+              ),
+              ChoiceChip(
+                label: Text('Utility'),
+                selected: false,
+                onSelected: (_) {},
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          ListTile(
+            title: const Text('Edit Schedules'),
+            trailing: const Icon(Icons.edit_calendar),
+            onTap: () {}, // TODO: Implement schedule editing
+          ),
+          ListTile(
+            title: const Text('Analytics'),
+            trailing: const Icon(Icons.analytics),
+            onTap: () {}, // TODO: Link to analytics dashboard
+          ),
+        ],
+      ),
     );
   }
 }
