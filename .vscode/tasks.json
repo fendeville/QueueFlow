@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run QueueFlow on TECNO",
+			"type": "shell",
+			"command": "flutter",
+			"args": [
+				"run",
+				"-d",
+				"0548333095103502"
+			],
+			"isBackground": true
+		}
+	]
+}
