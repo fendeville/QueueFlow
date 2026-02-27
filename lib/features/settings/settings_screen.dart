@@ -6,15 +6,51 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: PlaceholderScreen(
-        title: 'Settings',
-        subtitle: 'App behavior, preferences, and integrations',
-        items: [
-          'Theme and appearance',
-          'Language and region',
-          'Business hours',
-          'Connected services',
+    return Scaffold(
+      appBar: AppBar(title: const Text('Settings')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Card(
+            child: Column(
+              children: [
+                SwitchListTile(
+                  value: true,
+                  onChanged: (_) {},
+                  title: Text('Dark Mode Appearance'),
+                ),
+                SwitchListTile(
+                  value: true,
+                  onChanged: (_) {},
+                  title: Text('Push Notifications'),
+                ),
+                SwitchListTile(
+                  value: true,
+                  onChanged: (_) {},
+                  title: Text('SMS Templates'),
+                ),
+                SwitchListTile(
+                  value: true,
+                  onChanged: (_) {},
+                  title: Text('Email Summaries'),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          Card(
+            child: ListTile(
+              title: Text('Device Management'),
+              trailing: Icon(Icons.chevron_right),
+              onTap: () {},
+            ),
+          ),
+          const SizedBox(height: 12),
+          ListTile(
+            title: Text('Sign Out'),
+            textColor: Colors.redAccent,
+            onTap: () {},
+          ),
         ],
       ),
     );

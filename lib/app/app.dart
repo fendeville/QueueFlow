@@ -5,7 +5,7 @@ import 'package:the_queue_mobile/app/auth_controller.dart';
 import 'package:the_queue_mobile/app/role_controller.dart';
 import 'package:the_queue_mobile/app/app_theme.dart';
 import 'package:the_queue_mobile/app/theme_controller.dart';
-import 'package:the_queue_mobile/features/prototype/prototype_screens.dart';
+// Removed prototype screens import
 
 class TheQueueApp extends StatelessWidget {
   const TheQueueApp({super.key});
@@ -15,7 +15,7 @@ class TheQueueApp extends StatelessWidget {
       case AppRoutes.loader:
         return QueueFlowLoaderScreen();
       case AppRoutes.gallery:
-        // return const PrototypeGalleryScreen();
+        // Removed prototype gallery screen
         // Restored: fall through to normal navigation
         return OnboardingScreen();
       case AppRoutes.onboarding:

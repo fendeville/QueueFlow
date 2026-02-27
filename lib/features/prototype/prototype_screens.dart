@@ -144,11 +144,7 @@ class PrototypeGalleryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = <(String, String)>[
-      ('Customer Home', AppRoutes.customerHome),
-      ('Ticket Issuance', AppRoutes.ticketIssuance),
-      ('Live Ticket', AppRoutes.liveTicketDetail),
-      ('Branch Map', AppRoutes.branchMap),
-      ('Settings', AppRoutes.settingsProfile),
+      // All prototype screens and placeholder layouts will be removed and replaced with advanced UI matching the screenshots.
     ];
     return _ScreenScaffold(
       title: 'Prototype Gallery',

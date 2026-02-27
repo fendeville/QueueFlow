@@ -6,15 +6,35 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: PlaceholderScreen(
-        title: 'Notifications',
-        subtitle: 'Alerts, reminders, and important queue events',
-        items: [
-          'New booking alert',
-          'Queue capacity reached',
-          'No-show reminders',
-          'System status updates',
+    return Scaffold(
+      appBar: AppBar(title: const Text('Notifications')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.notifications_active, color: Colors.blue),
+              title: Text('Ticket A-124 is 2 away'),
+              subtitle: Text('Tap to open live ticket'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.notifications, color: Colors.orange),
+              title: Text('Queue capacity reached'),
+              subtitle: Text('Branch A is at max capacity'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.notifications, color: Colors.red),
+              title: Text('No-show reminder'),
+              subtitle: Text('Customer B-042 missed appointment'),
+              trailing: Icon(Icons.chevron_right),
+            ),
+          ),
         ],
       ),
     );
